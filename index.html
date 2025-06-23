@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Fonts Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="icon" href="img/bookmark.ico" />
+    <title>Bookmarker</title>
+  </head>
+  <body class="bg-color fw-400 font-body">
+    <section class="container d-flex flex-column align-items-center mt-5">
+      <!-- Start Error Modal -->
+      <div
+        class="modal fade"
+        id="errorModal"
+        tabindex="-1"
+        aria-labelledby="errorModalLabel"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-danger" id="errorModalLabel">
+                🚫 Invalid Input
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+              ></button>
+            </div>
+
+            <div class="modal-body">
+              <p><strong>Please follow the rules below:</strong></p>
+              <ul class="list-unstyled mb-0">
+                <li>❌ Site name must contain at least 3 characters</li>
+                <li>❌ Site URL must be a valid one</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Error Modal -->
+
+      <h1 class="font-heading title position-relative fs-50 mb-5">
+        Bookmarker
+      </h1>
+
+      <!-- Start Form -->
+      <div class="container-form mb-4">
+        <h2 class="font-heading-s fs-25 mb-4">
+          <i class="fa-solid fa-bookmark"></i>
+          Bookmark your favorite sites
+          <i class="fa-solid fa-bookmark"></i>
+        </h2>
+
+        <div class="px-3 py-1">
+          <label for="name" class="form-label fw-600"
+            ><i class="fa-solid fa-book-bookmark pe-2"></i> Site Name</label
+          >
+          <input
+            class="form-control mb-4"
+            list="datalistOptions"
+            id="name"
+            placeholder="Bookmark Name"
+            autocomplete="off"
+            oninput="regexName()"
+          />
+          <label for="email" class="form-label fw-600"
+            ><i class="fa-solid fa-link pe-2"></i> Site URL</label
+          >
+          <input
+            class="form-control mb-4"
+            list="datalistOptions"
+            id="email"
+            placeholder="Website URL"
+            autocomplete="off"
+            oninput="regexEmail()"
+          />
+
+          <div class="text-center">
+            <button onclick="addemail()" class="btn btn-submit px-5">
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- End Form -->
+
+      <!-- Start Table -->
+      <table class="table text-center align-middle">
+        <thead>
+          <tr>
+            <th scope="col">index</th>
+            <th scope="col">Website Name</th>
+            <th scope="col">Visit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody id="table"></tbody>
+      </table>
+      <!-- End Table -->
+    </section>
+
+    <!-- Bootstrap File JS -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Index File JS  -->
+    <script src="js/index.js"></script>
+  </body>
+</html>
